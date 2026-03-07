@@ -5,7 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import { login, signup, signInWithApple, signInWithGoogle } from './actions'
+import { createClient } from '@/utils/supabase/client'
+import { login, signup } from './actions'
 
 export default function LoginPage() {
     const [isLogin, setIsLogin] = useState(true)
@@ -31,11 +32,15 @@ export default function LoginPage() {
         setOauthLoading(provider)
         setError(null)
 
-        const action = provider === 'google' ? signInWithGoogle : signInWithApple
-        const result = await action()
+        const supabase = createClient()
+        const redirectTo = `${window.location.origin}/auth/callback?next=/dashboard`
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider,
+            options: { redirectTo },
+        })
 
-        if (result?.error) {
-            setError(result.error)
+        if (error) {
+            setError(getOAuthErrorMessage(provider, error.message))
             setOauthLoading(null)
         }
     }
@@ -212,4 +217,13 @@ function AppleIcon() {
             <path d="M16.3 12.6c0-2 1.7-3 1.8-3.1-1-1.5-2.5-1.7-3-1.7-1.3-.1-2.5.8-3.1.8-.6 0-1.5-.8-2.5-.8-1.3 0-2.5.8-3.1 1.9-1.3 2.2-.3 5.4.9 7.2.6.9 1.3 1.9 2.3 1.9s1.4-.6 2.7-.6c1.2 0 1.6.6 2.7.6s1.8-1 2.4-1.9c.7-1 1-2 1-2-.1 0-2.1-.8-2.1-3.3zm-2-6c.5-.6.8-1.5.7-2.4-.8 0-1.8.6-2.3 1.2-.5.6-.9 1.5-.8 2.4.9.1 1.8-.5 2.4-1.2z" />
         </svg>
     )
+}
+
+function getOAuthErrorMessage(provider: 'google' | 'apple', message: string) {
+    if (message.includes('provider is not enabled') || message.includes('Unsupported provider')) {
+        const providerLabel = provider === 'google' ? 'Google' : 'Apple'
+        return `${providerLabel} no esta habilitado en Supabase. Activalo en Authentication > Providers.`
+    }
+
+    return message
 }
