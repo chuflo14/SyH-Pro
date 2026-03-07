@@ -61,12 +61,12 @@ export default async function CursoPage({
                         <span className="sr-only">Volver</span>
                     </Link>
                 </Button>
-                <h1 className="text-lg font-medium truncate">
+                <h1 className="font-heading text-lg font-semibold truncate">
                     {course.title}
                 </h1>
             </header>
 
-            <main className="flex-1 max-w-2xl sm:mx-auto w-full sm:mt-6 sm:bg-white sm:rounded-xl sm:shadow-sm sm:overflow-hidden">
+            <main className="flex-1 max-w-2xl sm:mx-auto w-full sm:mt-6 sm:bg-white sm:rounded-sm sm:shadow-sm sm:overflow-hidden">
                 {/* Video Player Container */}
                 <div className="w-full aspect-video bg-black relative">
                     {course.video_url ? (
@@ -88,8 +88,8 @@ export default async function CursoPage({
                 </div>
 
                 {/* Content & Actions Container */}
-                <div className="p-5 sm:p-6 bg-white sm:bg-transparent rounded-t-2xl -mt-4 relative sm:mt-0 sm:rounded-none flex-1 flex flex-col">
-                    <h2 className="text-xl font-bold text-slate-900 mb-2">{course.title}</h2>
+                <div className="p-5 sm:p-6 bg-white sm:bg-transparent rounded-t-sm -mt-4 relative sm:mt-0 sm:rounded-none flex-1 flex flex-col">
+                    <h2 className="font-heading text-xl font-bold text-slate-900 mb-2">{course.title}</h2>
 
                     <div className="flex items-center gap-2 mb-6 text-sm text-slate-500">
                         <span className="flex items-center bg-slate-100 px-2 py-1 rounded-md text-slate-700">

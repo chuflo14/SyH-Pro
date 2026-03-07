@@ -15,11 +15,24 @@ export function Sidebar() {
     const pathname = usePathname()
 
     return (
-        <div className="flex h-full w-64 flex-col bg-slate-900 border-r border-slate-800">
-            <div className="flex h-16 shrink-0 items-center px-6">
-                <h1 className="text-xl font-bold text-white tracking-tight">
-                    SyH <span className="text-emerald-500">Pro</span>
-                </h1>
+        <div className="flex h-full w-64 flex-col bg-slate-950 border-r border-slate-800">
+            <div className="flex h-20 shrink-0 items-center justify-center border-b border-slate-800/50">
+                {/* Logo Image */}
+                <img
+                    src="/logo.png"
+                    alt="SyH Pro Logo"
+                    className="h-12 w-auto object-contain"
+                    onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                            const fallback = document.createElement('div');
+                            fallback.className = "text-xl font-heading font-black tracking-tighter text-white flex items-center justify-center gap-1";
+                            fallback.innerHTML = '<span>SyH</span><span class="text-[#50C878]">Pro</span>';
+                            parent.appendChild(fallback);
+                        }
+                    }}
+                />
             </div>
             <div className="flex flex-1 flex-col overflow-y-auto">
                 <nav className="flex-1 space-y-1 px-4 py-4">
@@ -29,9 +42,9 @@ export function Sidebar() {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`group flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive
-                                        ? 'bg-slate-800 text-emerald-400'
-                                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                                className={`group flex items-center rounded-sm px-3 py-2.5 text-sm font-medium transition-all duration-200 ${isActive
+                                    ? 'bg-slate-800/80 text-emerald-400 shadow-sm'
+                                    : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-100'
                                     }`}
                             >
                                 <item.icon

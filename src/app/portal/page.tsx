@@ -46,9 +46,11 @@ export default async function PortalPage() {
             {/* Mobile Topbar */}
             <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-slate-200 bg-white px-4 shadow-sm">
                 <div>
-                    <h1 className="text-xl font-bold tracking-tight text-slate-900">
-                        SyH <span className="text-emerald-500">Pro</span>
-                    </h1>
+                    <img
+                        src="/logo.png"
+                        alt="SyH Pro Logo"
+                        className="h-8 w-auto object-contain"
+                    />
                 </div>
                 <form action={workerLogout}>
                     <Button variant="ghost" size="sm" type="submit" className="text-slate-600">
@@ -59,7 +61,7 @@ export default async function PortalPage() {
 
             <main className="p-4 pb-20 max-w-lg mx-auto space-y-6">
                 <div>
-                    <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                    <h2 className="font-heading text-2xl font-bold tracking-tight text-slate-900">
                         Hola, {worker?.first_name}
                     </h2>
                     <p className="text-slate-500">
@@ -68,7 +70,7 @@ export default async function PortalPage() {
                 </div>
 
                 <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-slate-900">Mis Capacitaciones</h3>
+                    <h3 className="font-heading text-lg font-bold text-slate-900 uppercase tracking-wide">Mis Capacitaciones</h3>
 
                     {assignments?.map((a: any) => {
                         const isCompleted = a.status === 'completed'
@@ -82,7 +84,7 @@ export default async function PortalPage() {
 
                                 <CardHeader className="pl-5 pb-2">
                                     <div className="flex justify-between items-start">
-                                        <CardTitle className="text-base font-bold text-slate-900 leading-tight">
+                                        <CardTitle className="font-heading text-base font-bold text-slate-900 leading-tight">
                                             {a.courses?.title}
                                         </CardTitle>
                                         {isCompleted ? (

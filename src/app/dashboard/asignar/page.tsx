@@ -39,7 +39,7 @@ export default async function AsignarPage() {
         <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
-                    <h2 className="text-2xl font-bold tracking-tight text-slate-900">Control de Asignaciones</h2>
+                    <h2 className="font-heading text-2xl font-bold tracking-tight text-slate-900">Control de Asignaciones</h2>
                     <p className="text-slate-500">
                         Asigna capacitaciones a los trabajadores y monitorea su cumplimiento.
                     </p>
@@ -49,8 +49,8 @@ export default async function AsignarPage() {
 
             <Card className="border-slate-200 shadow-sm">
                 <CardHeader className="pb-3">
-                    <CardTitle className="text-lg font-medium text-slate-900 flex items-center gap-2">
-                        <BookOpenCheck className="h-5 w-5 text-emerald-600" />
+                    <CardTitle className="font-heading text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <BookOpenCheck className="h-5 w-5 text-[#50C878]" />
                         Registro de Cursos
                     </CardTitle>
                     <CardDescription>

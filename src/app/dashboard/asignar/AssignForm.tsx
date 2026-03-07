@@ -81,23 +81,23 @@ export function AssignForm({ workers, courses }: { workers: Worker[], courses: C
 
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
-                    <Button className="bg-emerald-600 text-white hover:bg-emerald-700">
+                    <Button className="bg-[#000080] text-white hover:bg-[#000060] shadow-sm">
                         <PlusCircle className="mr-2 h-4 w-4" />
                         Nueva Asignación
                     </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
-                        <DialogTitle>Asignar Capacitación</DialogTitle>
+                        <DialogTitle className="font-heading text-xl font-bold text-slate-900">Asignar Capacitación</DialogTitle>
                         <DialogDescription>
                             Selecciona un trabajador y el curso a asignar, además de una fecha límite (Due Date).
                         </DialogDescription>
                     </DialogHeader>
                     <form action={action} className="space-y-4 pt-4">
                         <div className="space-y-2">
-                            <Label>Trabajador</Label>
+                            <Label className="font-medium text-slate-700">Trabajador</Label>
                             <Select value={selectedWorker} onValueChange={setSelectedWorker}>
-                                <SelectTrigger>
+                                <SelectTrigger className="shadow-sm">
                                     <SelectValue placeholder="Busca o selecciona un trabajador..." />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -111,9 +111,9 @@ export function AssignForm({ workers, courses }: { workers: Worker[], courses: C
                         </div>
 
                         <div className="space-y-2">
-                            <Label>Curso</Label>
+                            <Label className="font-medium text-slate-700">Curso</Label>
                             <Select value={selectedCourse} onValueChange={setSelectedCourse}>
-                                <SelectTrigger>
+                                <SelectTrigger className="shadow-sm">
                                     <SelectValue placeholder="Selecciona un curso..." />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -127,11 +127,15 @@ export function AssignForm({ workers, courses }: { workers: Worker[], courses: C
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="dueDate">Fecha de Vencimiento</Label>
-                            <Input id="dueDate" name="dueDate" type="date" required />
+                            <Label htmlFor="dueDate" className="font-medium text-slate-700">Fecha de Vencimiento</Label>
+                            <Input id="dueDate" name="dueDate" type="date" required className="shadow-sm" />
                         </div>
 
-                        {error && <p className="text-sm font-medium text-red-500">{error}</p>}
+                        {error && (
+                            <div className="rounded-md border border-red-200 bg-red-50 p-2 text-sm font-medium text-red-600">
+                                {error}
+                            </div>
+                        )}
 
                         <div className="flex justify-end space-x-2 pt-4">
                             <Button
@@ -143,7 +147,7 @@ export function AssignForm({ workers, courses }: { workers: Worker[], courses: C
                             >
                                 Cancelar
                             </Button>
-                            <Button type="submit" disabled={loading} className="bg-slate-900 text-white hover:bg-slate-800">
+                            <Button type="submit" disabled={loading} className="bg-[#000080] text-white hover:bg-[#000060] shadow-sm px-6 font-bold">
                                 {loading ? 'Asignando...' : 'Asignar Curso'}
                             </Button>
                         </div>

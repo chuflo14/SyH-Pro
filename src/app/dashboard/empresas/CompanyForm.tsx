@@ -38,29 +38,33 @@ export function CompanyForm() {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button className="bg-emerald-600 text-white hover:bg-emerald-700">
+                <Button className="bg-[#000080] text-white hover:bg-[#000060] shadow-sm">
                     <PlusCircle className="mr-2 h-4 w-4" />
                     Nueva Empresa
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Registrar Empresa</DialogTitle>
+                    <DialogTitle className="font-heading text-xl font-bold text-slate-900">Registrar Empresa</DialogTitle>
                     <DialogDescription>
                         Añade una nueva empresa cliente para comenzar a gestionar sus trabajadores y capacitaciones.
                     </DialogDescription>
                 </DialogHeader>
                 <form action={action} className="space-y-4 pt-4">
                     <div className="space-y-2">
-                        <Label htmlFor="name">Razón Social o Nombre</Label>
-                        <Input id="name" name="name" placeholder="Acme S.A" required />
+                        <Label htmlFor="name" className="font-medium text-slate-700">Razón Social o Nombre</Label>
+                        <Input id="name" name="name" placeholder="Acme S.A" required className="shadow-sm" />
                     </div>
                     <div className="space-y-2">
-                        <Label htmlFor="cuit">CUIT</Label>
-                        <Input id="cuit" name="cuit" placeholder="30-12345678-9" required />
+                        <Label htmlFor="cuit" className="font-medium text-slate-700">CUIT</Label>
+                        <Input id="cuit" name="cuit" placeholder="30-12345678-9" required className="shadow-sm" />
                     </div>
 
-                    {error && <p className="text-sm font-medium text-red-500">{error}</p>}
+                    {error && (
+                        <div className="rounded-md border border-red-200 bg-red-50 p-2 text-sm font-medium text-red-600">
+                            {error}
+                        </div>
+                    )}
 
                     <div className="flex justify-end space-x-2 pt-4">
                         <Button
@@ -72,7 +76,7 @@ export function CompanyForm() {
                         >
                             Cancelar
                         </Button>
-                        <Button type="submit" disabled={loading} className="bg-slate-900 text-white hover:bg-slate-800">
+                        <Button type="submit" disabled={loading} className="bg-[#000080] text-white hover:bg-[#000060] shadow-sm px-6">
                             {loading ? 'Guardando...' : 'Guardar Empresa'}
                         </Button>
                     </div>

@@ -55,23 +55,23 @@ export function WorkerForm({ companies }: { companies: Company[] }) {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button className="bg-emerald-600 text-white hover:bg-emerald-700">
+                <Button className="bg-[#000080] text-white hover:bg-[#000060] shadow-sm">
                     <PlusCircle className="mr-2 h-4 w-4" />
                     Registrar Trabajador
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Nuevo Trabajador</DialogTitle>
+                    <DialogTitle className="font-heading text-xl font-bold text-slate-900">Nuevo Trabajador</DialogTitle>
                     <DialogDescription>
                         Agrega un empleado a una empresa existente. Necesitará su DNI y Legajo para ingresar al portal.
                     </DialogDescription>
                 </DialogHeader>
                 <form action={action} className="space-y-4 pt-4">
                     <div className="space-y-2">
-                        <Label>Empresa Cliente</Label>
+                        <Label className="font-medium text-slate-700">Empresa Cliente</Label>
                         <Select value={selectedCompany} onValueChange={setSelectedCompany}>
-                            <SelectTrigger>
+                            <SelectTrigger className="shadow-sm">
                                 <SelectValue placeholder="Selecciona una empresa" />
                             </SelectTrigger>
                             <SelectContent>
@@ -85,26 +85,30 @@ export function WorkerForm({ companies }: { companies: Company[] }) {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <Label htmlFor="firstName">Nombre</Label>
-                            <Input id="firstName" name="firstName" placeholder="Juan" required />
+                            <Label htmlFor="firstName" className="font-medium text-slate-700">Nombre</Label>
+                            <Input id="firstName" name="firstName" placeholder="Juan" required className="shadow-sm" />
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="lastName">Apellido</Label>
-                            <Input id="lastName" name="lastName" placeholder="Pérez" required />
+                            <Label htmlFor="lastName" className="font-medium text-slate-700">Apellido</Label>
+                            <Input id="lastName" name="lastName" placeholder="Pérez" required className="shadow-sm" />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <Label htmlFor="dni">DNI</Label>
-                            <Input id="dni" name="dni" type="number" placeholder="Sin puntos" required />
+                            <Label htmlFor="dni" className="font-medium text-slate-700">DNI</Label>
+                            <Input id="dni" name="dni" type="number" placeholder="Sin puntos" required className="shadow-sm" />
                         </div>
                         <div className="space-y-2">
-                            <Label htmlFor="legajo">N° Legajo</Label>
-                            <Input id="legajo" name="legajo" placeholder="1001" required />
+                            <Label htmlFor="legajo" className="font-medium text-slate-700">N° Legajo</Label>
+                            <Input id="legajo" name="legajo" placeholder="1001" required className="shadow-sm" />
                         </div>
                     </div>
 
-                    {error && <p className="text-sm font-medium text-red-500">{error}</p>}
+                    {error && (
+                        <div className="rounded-md border border-red-200 bg-red-50 p-2 text-sm font-medium text-red-600">
+                            {error}
+                        </div>
+                    )}
 
                     <div className="flex justify-end space-x-2 pt-4">
                         <Button
@@ -116,7 +120,7 @@ export function WorkerForm({ companies }: { companies: Company[] }) {
                         >
                             Cancelar
                         </Button>
-                        <Button type="submit" disabled={loading} className="bg-slate-900 text-white hover:bg-slate-800">
+                        <Button type="submit" disabled={loading} className="bg-[#000080] text-white hover:bg-[#000060] shadow-sm px-6 font-bold">
                             {loading ? 'Guardando...' : 'Registrar'}
                         </Button>
                     </div>

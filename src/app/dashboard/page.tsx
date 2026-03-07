@@ -24,7 +24,7 @@ export default async function DashboardOverview() {
     return (
         <div className="space-y-6">
             <div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-900">Resumen General</h2>
+                <h2 className="font-heading text-2xl font-bold tracking-tight text-slate-900">Resumen General</h2>
                 <p className="text-slate-500">
                     Métricas clave de las capacitaciones de tus clientes.
                 </p>
@@ -33,7 +33,7 @@ export default async function DashboardOverview() {
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <Card className="border-slate-200 shadow-sm">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-600">Total Empresas</CardTitle>
+                        <CardTitle className="font-heading text-sm font-semibold text-slate-600">Total Empresas</CardTitle>
                         <Building2 className="h-4 w-4 text-emerald-600" />
                     </CardHeader>
                     <CardContent>
@@ -43,7 +43,7 @@ export default async function DashboardOverview() {
 
                 <Card className="border-slate-200 shadow-sm">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-600">Total Trabajadores</CardTitle>
+                        <CardTitle className="font-heading text-sm font-semibold text-slate-600">Total Trabajadores</CardTitle>
                         <Users className="h-4 w-4 text-emerald-600" />
                     </CardHeader>
                     <CardContent>
@@ -53,7 +53,7 @@ export default async function DashboardOverview() {
 
                 <Card className="border-slate-200 shadow-sm">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-600">Asignaciones Obra</CardTitle>
+                        <CardTitle className="font-heading text-sm font-semibold text-slate-600">Asignaciones Obra</CardTitle>
                         <BookOpenCheck className="h-4 w-4 text-emerald-600" />
                     </CardHeader>
                     <CardContent>
@@ -63,7 +63,7 @@ export default async function DashboardOverview() {
 
                 <Card className="border-slate-200 shadow-sm">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-600">% Cumplimiento</CardTitle>
+                        <CardTitle className="font-heading text-sm font-semibold text-slate-600">% Cumplimiento</CardTitle>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
