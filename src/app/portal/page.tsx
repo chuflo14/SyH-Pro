@@ -65,7 +65,7 @@ export default async function PortalPage() {
                         Hola, {worker?.first_name}
                     </h2>
                     <p className="text-slate-500">
-                        {Array.isArray(worker?.companies) ? worker?.companies[0]?.name : (worker?.companies as any)?.name}
+                        {Array.isArray(worker?.companies) ? (worker?.companies[0] as any)?.name : (worker?.companies as any)?.name}
                     </p>
                 </div>
 

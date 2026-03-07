@@ -65,7 +65,7 @@ export default async function EmpresasPage() {
                                 {(!companies || companies.length === 0) && (
                                     <TableRow>
                                         <TableCell colSpan={3} className="h-24 text-center text-slate-500">
-                                            No hay datos para mostrar. Usa el botón "Nueva Empresa" para empezar.
+                                            No hay datos para mostrar. Usa el botón &quot;Nueva Empresa&quot; para empezar.
                                         </TableCell>
                                     </TableRow>
                                 )}

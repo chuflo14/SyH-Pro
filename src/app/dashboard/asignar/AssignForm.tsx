@@ -27,7 +27,7 @@ type Worker = {
     first_name: string
     last_name: string
     dni: string
-    companies: any
+    companies: { name: string } | { name: string }[] | null
 }
 type Course = { id: string, title: string }
 
@@ -103,7 +103,7 @@ export function AssignForm({ workers, courses }: { workers: Worker[], courses: C
                                 <SelectContent>
                                     {workers.map((w) => (
                                         <SelectItem key={w.id} value={w.id}>
-                                            {w.first_name} {w.last_name} ({w.companies?.name})
+                                            {w.first_name} {w.last_name} ({Array.isArray(w.companies) ? w.companies[0]?.name : w.companies?.name})
                                         </SelectItem>
                                     ))}
                                 </SelectContent>

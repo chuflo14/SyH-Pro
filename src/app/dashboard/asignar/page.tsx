@@ -100,7 +100,7 @@ export default async function AsignarPage() {
                                 {(!assignments || assignments.length === 0) && (
                                     <TableRow>
                                         <TableCell colSpan={5} className="h-24 text-center text-slate-500">
-                                            Ninguna asignación en curso. Registra una con el botón de "Nueva Asignación".
+                                            Ninguna asignación en curso. Registra una con el botón de &quot;Nueva Asignación&quot;.
                                         </TableCell>
                                     </TableRow>
                                 )}
